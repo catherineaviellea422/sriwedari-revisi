@@ -1,0 +1,365 @@
+{
+  "project": {
+    "id": "10730309321967783890",
+    "title": "Galeri Sriwedari Mobile App",
+    "theme": "Nusantara Heritage Elegance",
+    "exportedAt": "2026-10-12 01:35:51"
+  },
+  "userScreens": [
+    {
+      "id": "7a61d3f52eb047d5952aa042f758b119",
+      "title": "Login (User)",
+      "role": "user",
+      "file": "screens/user/login.html",
+      "screenshot": "assets/screenshots/7a61d3f52eb047d5952aa042f758b119.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "70c44e6a264d458b8ef9a6c0aa4b3b5f",
+      "title": "Dashboard (User)",
+      "role": "user",
+      "file": "screens/user/dashboard.html",
+      "screenshot": "assets/screenshots/70c44e6a264d458b8ef9a6c0aa4b3b5f.png",
+      "width": "780",
+      "height": "1780"
+    },
+    {
+      "id": "fa5e657a3d4948b3b19f4160e422aec4",
+      "title": "Profil (User)",
+      "role": "user",
+      "file": "screens/user/profil.html",
+      "screenshot": "assets/screenshots/fa5e657a3d4948b3b19f4160e422aec4.png",
+      "width": "780",
+      "height": "2176"
+    },
+    {
+      "id": "0d3640d84701481a84a0b4ae7573c7de",
+      "title": "Detail Galeri (User)",
+      "role": "user",
+      "file": "screens/user/detail-galeri.html",
+      "screenshot": "assets/screenshots/0d3640d84701481a84a0b4ae7573c7de.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "22b35d2149e9421394035687e2b1e456",
+      "title": "Detail Galeri (User) Mobile",
+      "role": "user",
+      "file": "screens/user/detail-galeri-mobile.html",
+      "screenshot": "assets/screenshots/22b35d2149e9421394035687e2b1e456.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "80f32f4030b44645b9a7d14bb5fefee4",
+      "title": "Jadwal Kegiatan (User) Mobile",
+      "role": "user",
+      "file": "screens/user/jadwal-kegiatan-mobile.html",
+      "screenshot": "assets/screenshots/80f32f4030b44645b9a7d14bb5fefee4.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "8f900f4635cc47a2acff8979d7bd342b",
+      "title": "Logout (User) Mobile",
+      "role": "user",
+      "file": "screens/user/logout-mobile.html",
+      "screenshot": "assets/screenshots/8f900f4635cc47a2acff8979d7bd342b.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "074a064d7b7b4019b086b3e76053ccfd",
+      "title": "Form Pemesanan Kostum",
+      "role": "user",
+      "file": "screens/user/form-pemesanan.html",
+      "screenshot": "assets/screenshots/074a064d7b7b4019b086b3e76053ccfd.png",
+      "width": "780",
+      "height": "2178"
+    },
+    {
+      "id": "f22cd016b4494c808dabb378df73b398",
+      "title": "Jadwal Kegiatan (User)",
+      "role": "user",
+      "file": "screens/user/jadwal-kegiatan.html",
+      "screenshot": "assets/screenshots/f22cd016b4494c808dabb378df73b398.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "be6ceba4b9bb4fa19db472c2a4ff61c3",
+      "title": "List Galeri (User)",
+      "role": "user",
+      "file": "screens/user/list-galeri.html",
+      "screenshot": "assets/screenshots/be6ceba4b9bb4fa19db472c2a4ff61c3.png",
+      "width": "780",
+      "height": "1970"
+    },
+    {
+      "id": "7d7623e8fe2e46648cd7536219241cc5",
+      "title": "Logout (User)",
+      "role": "user",
+      "file": "screens/user/logout.html",
+      "screenshot": "assets/screenshots/7d7623e8fe2e46648cd7536219241cc5.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "8b05edc62cf342188debbd8528a37403",
+      "title": "Katalog Kostum & Sewa (User)",
+      "role": "user",
+      "file": "screens/user/katalog-kostum.html",
+      "screenshot": "assets/screenshots/8b05edc62cf342188debbd8528a37403.png",
+      "width": "780",
+      "height": "1952"
+    }
+  ],
+  "adminScreens": [
+    {
+      "id": "8223a2a19cbe49d6a87fba6b66f3d77e",
+      "title": "Kelola Pengguna (Admin)",
+      "role": "admin",
+      "file": "screens/admin/kelola-pengguna.html",
+      "screenshot": "assets/screenshots/8223a2a19cbe49d6a87fba6b66f3d77e.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "55863a2060374e2dbd9067ec583145f5",
+      "title": "Kelola Galeri (Admin)",
+      "role": "admin",
+      "file": "screens/admin/kelola-galeri.html",
+      "screenshot": "assets/screenshots/55863a2060374e2dbd9067ec583145f5.png",
+      "width": "780",
+      "height": "2060"
+    },
+    {
+      "id": "b96e524f6b4d487b8080729728d9e9ae",
+      "title": "Logout (Admin)",
+      "role": "admin",
+      "file": "screens/admin/logout.html",
+      "screenshot": "assets/screenshots/b96e524f6b4d487b8080729728d9e9ae.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "f5f087a87fc34bf6ac8439fc0bde5c92",
+      "title": "Login (Admin)",
+      "role": "admin",
+      "file": "screens/admin/login.html",
+      "screenshot": "assets/screenshots/f5f087a87fc34bf6ac8439fc0bde5c92.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "6ab6d1c82b69495382445ab8b4a2c52a",
+      "title": "Kategori Galeri (Admin)",
+      "role": "admin",
+      "file": "screens/admin/kategori-galeri.html",
+      "screenshot": "assets/screenshots/6ab6d1c82b69495382445ab8b4a2c52a.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "b9668d904c3b485f8a1114128091abd8",
+      "title": "Dashboard (Admin)",
+      "role": "admin",
+      "file": "screens/admin/dashboard.html",
+      "screenshot": "assets/screenshots/b9668d904c3b485f8a1114128091abd8.png",
+      "width": "780",
+      "height": "2454"
+    },
+    {
+      "id": "f36e9e933f0e4748b823ea0e343e4871",
+      "title": "Login (Admin) Mobile Animated",
+      "role": "admin",
+      "file": "screens/admin/login-animated.html",
+      "screenshot": "assets/screenshots/f36e9e933f0e4748b823ea0e343e4871.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "f4f7e97674cb41feb0e6e45fb6d56da0",
+      "title": "Login (Admin) Mobile",
+      "role": "admin",
+      "file": "screens/admin/login-mobile.html",
+      "screenshot": "assets/screenshots/f4f7e97674cb41feb0e6e45fb6d56da0.png",
+      "width": "780",
+      "height": "1816"
+    },
+    {
+      "id": "54318607321e44ad83ab8b928795bfc2",
+      "title": "Pengaturan (Admin)",
+      "role": "admin",
+      "file": "screens/admin/pengaturan.html",
+      "screenshot": "assets/screenshots/54318607321e44ad83ab8b928795bfc2.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "06e150e411e647e1a4907415657c364a",
+      "title": "Dashboard (Admin) - Figma Fixed",
+      "role": "admin",
+      "file": "screens/admin/dashboard-figma-fixed.html",
+      "screenshot": "assets/screenshots/06e150e411e647e1a4907415657c364a.png",
+      "width": "780",
+      "height": "2430"
+    },
+    {
+      "id": "4b91f8be9a1342738543b1c517d9e59d",
+      "title": "Login (Admin) Mobile Alt",
+      "role": "admin",
+      "file": "screens/admin/login-mobile-alt.html",
+      "screenshot": "assets/screenshots/4b91f8be9a1342738543b1c517d9e59d.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "d4491a72420c4f77bd3cc26dbcc1ecf5",
+      "title": "Tambah Konten Galeri (Admin)",
+      "role": "admin",
+      "file": "screens/admin/tambah-konten.html",
+      "screenshot": "assets/screenshots/d4491a72420c4f77bd3cc26dbcc1ecf5.png",
+      "width": "780",
+      "height": "2142"
+    },
+    {
+      "id": "kelola-pesanan-admin",
+      "title": "Kelola Pesanan & Sewa (Admin)",
+      "role": "admin",
+      "file": "screens/admin/kelola-pesanan.html",
+      "screenshot": "assets/screenshots/b9668d904c3b485f8a1114128091abd8.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "kasir-loket-admin",
+      "title": "Kasir Loket & Gate Scanner (Admin)",
+      "role": "admin",
+      "file": "screens/admin/kasir-loket.html",
+      "screenshot": "assets/screenshots/b9668d904c3b485f8a1114128091abd8.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "audit-log-admin",
+      "title": "Audit Trail & Keamanan Kurator (Admin)",
+      "role": "admin",
+      "file": "screens/admin/audit-log.html",
+      "screenshot": "assets/screenshots/b9668d904c3b485f8a1114128091abd8.png",
+      "width": "780",
+      "height": "1768"
+    },
+    {
+      "id": "kelola-kupon-admin",
+      "title": "Manajemen Kupon Diskon Budaya (Admin)",
+      "role": "admin",
+      "file": "screens/admin/kelola-kupon.html",
+      "screenshot": "assets/screenshots/b9668d904c3b485f8a1114128091abd8.png",
+      "width": "780",
+      "height": "1768"
+    }
+  ],
+  "mediaAssets": [
+    {
+      "id": "2a817534fe5549ffbb8084648665230d",
+      "name": "tari-ketubun-ritual-1.png",
+      "title": "Tari Ketubun Ritual - Dancers",
+      "description": "Traditional Indonesian cultural dance performance, graceful female Balinese or Javanese dancers performing Ketubun traditional ritual dance in elaborate golden ceremonial attire, ornate golden crowns and jewelry, holding decorative fans, staged performance on wooden temple pavilion with warm theatrical lighting and soft stage illumination, complete full dancer composition without cutoffs or visual artifacts, high resolution, cinematic cultural photography",
+      "file": "assets/images/tari-ketubun-ritual-1.png",
+      "width": "1024",
+      "height": "1024"
+    },
+    {
+      "id": "dcd45c8e45e540da882f8d8bddfbc7d2",
+      "name": "tari-jawa-dramatic-stage.png",
+      "title": "Full-Bleed Javanese Dancers Dramatic",
+      "description": "Full bleed moody dramatic cinematic photography of traditional Indonesian Javanese dancers performing in intricate ornate gold and deep red traditional batik costumes, dramatic warm theatrical lighting, dark atmospheric stage background, authentic cultural dance performance",
+      "file": "assets/images/tari-jawa-dramatic-stage.png",
+      "width": "768",
+      "height": "1376"
+    },
+    {
+      "id": "7980788130238732839",
+      "name": "mockup-ui-user-admin.png",
+      "title": "Mockup UI Galeri Sriwedari User & Admin",
+      "description": "Mockup UI Galeri Sriwedari User dan Admin.png",
+      "file": "assets/images/mockup-ui-user-admin.png",
+      "width": "941",
+      "height": "1672"
+    },
+    {
+      "id": "eec032d860ea4cb4aef0faec679e5e31",
+      "name": "reog-ponorogo.png",
+      "title": "Reog Ponorogo Singo Barong",
+      "description": "Indonesian traditional Reog Ponorogo performance, majestic lion and peacock feather Singo Barong dancer mask with dancers in traditional costume, cultural stage lighting",
+      "file": "assets/images/reog-ponorogo.png",
+      "width": "1024",
+      "height": "1024"
+    },
+    {
+      "id": "4c19c28330554a799126c60ccc2f292c",
+      "name": "tari-kipas.png",
+      "title": "Tari Kipas Fan Dance",
+      "description": "Traditional Indonesian Tari Kipas fan dance performance, graceful female dancer in bright elegant silk and gold costume holding decorated hand fans",
+      "file": "assets/images/tari-kipas.png",
+      "width": "1024",
+      "height": "1024"
+    },
+    {
+      "id": "62879ff6d61140b0a5d72f567b9f5d51",
+      "name": "tari-kecak.png",
+      "title": "Tari Kecak Fire Dance",
+      "description": "Indonesian traditional Balinese Tari Kecak fire dance performance, dramatic circle of performers around warm fire light at dusk, cultural photography",
+      "file": "assets/images/tari-kecak.png",
+      "width": "1024",
+      "height": "1024"
+    },
+    {
+      "id": "7980788130238734237",
+      "name": "logo-sriwedari.png",
+      "title": "Logo Galeri Sriwedari (Transparent)",
+      "description": "WhatsApp_Image_2026-10-03_at_02.20.07-removebg-preview.png",
+      "file": "assets/images/logo-sriwedari.png",
+      "width": "500",
+      "height": "500"
+    },
+    {
+      "id": "fc534ca5741e4e9d9d7fe8120b15d627",
+      "name": "tari-ketubun-ritual-2.png",
+      "title": "Tari Ketubun Ritual - Costume",
+      "description": "Traditional Indonesian cultural dance costume and performance Ketubun ritual dance, elaborate traditional ceremonial attire, warm stage lighting photography",
+      "file": "assets/images/tari-ketubun-ritual-2.png",
+      "width": "1024",
+      "height": "1024"
+    },
+    {
+      "id": "6cb54164dc314b51958a9a9104971249",
+      "name": "tari-gandrung-banyuwangi.png",
+      "title": "Tari Gandrung Banyuwangi",
+      "description": "Indonesian traditional Tari Gandrung dancer from Banyuwangi with ornate gold fan and decorative traditional headpiece costume, warm cinematic lighting cultural performance photography",
+      "file": "assets/images/tari-gandrung-banyuwangi.png",
+      "width": "1024",
+      "height": "1024"
+    },
+    {
+      "id": "419d8da16ef643fa8437e4376cd47f78",
+      "name": "tari-jawa-stage.png",
+      "title": "Tari Jawa Cultural Stage",
+      "description": "Traditional Indonesian Javanese dancers performing graceful dance in ornate golden batik attire with theatrical warm lighting, cultural heritage stage performance, cinematic lighting",
+      "file": "assets/images/tari-jawa-stage.png",
+      "width": "1376",
+      "height": "768"
+    },
+    {
+      "id": "84a401ef2af64cb0bbbb1b9b71d95dab",
+      "name": "tari-topeng-malangan.png",
+      "title": "Tari Topeng Malangan Mask",
+      "description": "Traditional Indonesian Tari Topeng Malangan dancer wearing intricate traditional green and red carved wooden mask with gold ornaments, traditional East Java performance close-up",
+      "file": "assets/images/tari-topeng-malangan.png",
+      "width": "1024",
+      "height": "1024"
+    }
+  ]
+}

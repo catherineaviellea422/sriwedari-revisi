@@ -1,0 +1,535 @@
+{
+  "name": "projects/10730309321967783890",
+  "title": "Galeri Sriwedari Mobile App",
+  "visibility": "PRIVATE",
+  "createTime": "2026-10-04T21:07:05.639526Z",
+  "updateTime": "2026-10-11T18:18:29.881119Z",
+  "projectType": "TEXT_TO_UI_PRO",
+  "thumbnailScreenshot": {
+    "name": "projects/10730309321967783890/screens/dcd45c8e45e540da882f8d8bddfbc7d2/fileEntries/screenshot",
+    "downloadUrl": "https://lh3.googleusercontent.com/aida/AEtjO1VZL3pv1-rlGd6q0hpdc0kyPrHQU2TxUuT6mF4NeyoCTyFr6KhS0FOt929nq6EvXqZnaUiJcORptLlZMlIk15RPCJXXw7HlQGufESLoXxN2F67M6GGSG7oupkWBfH29hZcNKxAc4Bdi2g7zOAI0cc5uX48OgeY7b4ifR4kjsl5VmktY2t1a0adiUCT3ky2i9qT84N-KjkrYnLdVceWePqQGgNVPPXU6j2eF0nbve80P4Elnkke1YXxv8w2Z"
+  },
+  "origin": "STITCH",
+  "deviceType": "MOBILE",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "PLAYFAIR_DISPLAY",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#1f4a3a",
+    "headlineFont": "PLAYFAIR_DISPLAY",
+    "bodyFont": "INTER",
+    "labelFont": "INTER",
+    "namedColors": {
+      "inverse_on_surface": "#f5f0e6",
+      "surface_dim": "#dedad0",
+      "surface_container_high": "#ede8de",
+      "on_error_container": "#93000a",
+      "on_surface": "#1d1c16",
+      "on_primary_fixed": "#002116",
+      "on_background": "#1d1c16",
+      "on_error": "#ffffff",
+      "tertiary_fixed_dim": "#a8cfbe",
+      "secondary_fixed_dim": "#e9c175",
+      "on_secondary_fixed": "#271900",
+      "on_surface_variant": "#414944",
+      "on_primary_fixed_variant": "#244e3e",
+      "surface_container": "#f2ede3",
+      "surface_variant": "#e7e2d8",
+      "inverse_primary": "#a3d0bb",
+      "surface_container_low": "#f8f3e9",
+      "on_tertiary_fixed_variant": "#2a4d40",
+      "outline_variant": "#c0c8c3",
+      "primary_container": "#1f4a3a",
+      "surface_bright": "#fef9ef",
+      "on_primary": "#ffffff",
+      "surface_tint": "#3c6755",
+      "error": "#ba1a1a",
+      "on_tertiary": "#ffffff",
+      "on_secondary_container": "#795a19",
+      "outline": "#717974",
+      "on_tertiary_container": "#92b7a7",
+      "tertiary_container": "#26493c",
+      "inverse_surface": "#32302a",
+      "on_secondary_fixed_variant": "#5d4200",
+      "primary": "#033325",
+      "surface": "#fef9ef",
+      "error_container": "#ffdad6",
+      "tertiary": "#0d3227",
+      "on_secondary": "#ffffff",
+      "primary_fixed_dim": "#a3d0bb",
+      "secondary_fixed": "#ffdea5",
+      "surface_container_lowest": "#ffffff",
+      "tertiary_fixed": "#c4ebd9",
+      "secondary": "#785918",
+      "on_tertiary_fixed": "#002117",
+      "on_primary_container": "#8cb9a4",
+      "primary_fixed": "#beedd7",
+      "surface_container_highest": "#e7e2d8",
+      "secondary_container": "#fed487",
+      "background": "#fef9ef"
+    },
+    "designMd": "---\nname: Nusantara Heritage Elegance\ncolors:\n  surface: '#fef9ef'\n  surface-dim: '#dedad0'\n  surface-bright: '#fef9ef'\n  surface-container-lowest: '#ffffff'\n  surface-container-low: '#f8f3e9'\n  surface-container: '#f2ede3'\n  surface-container-high: '#ede8de'\n  surface-container-highest: '#e7e2d8'\n  on-surface: '#1d1c16'\n  on-surface-variant: '#414944'\n  inverse-surface: '#32302a'\n  inverse-on-surface: '#f5f0e6'\n  outline: '#717974'\n  outline-variant: '#c0c8c3'\n  surface-tint: '#3c6755'\n  primary: '#033325'\n  on-primary: '#ffffff'\n  primary-container: '#1f4a3a'\n  on-primary-container: '#8cb9a4'\n  inverse-primary: '#a3d0bb'\n  secondary: '#785918'\n  on-secondary: '#ffffff'\n  secondary-container: '#fed487'\n  on-secondary-container: '#795a19'\n  tertiary: '#0d3227'\n  on-tertiary: '#ffffff'\n  tertiary-container: '#26493c'\n  on-tertiary-container: '#92b7a7'\n  error: '#ba1a1a'\n  on-error: '#ffffff'\n  error-container: '#ffdad6'\n  on-error-container: '#93000a'\n  primary-fixed: '#beedd7'\n  primary-fixed-dim: '#a3d0bb'\n  on-primary-fixed: '#002116'\n  on-primary-fixed-variant: '#244e3e'\n  secondary-fixed: '#ffdea5'\n  secondary-fixed-dim: '#e9c175'\n  on-secondary-fixed: '#271900'\n  on-secondary-fixed-variant: '#5d4200'\n  tertiary-fixed: '#c4ebd9'\n  tertiary-fixed-dim: '#a8cfbe'\n  on-tertiary-fixed: '#002117'\n  on-tertiary-fixed-variant: '#2a4d40'\n  background: '#fef9ef'\n  on-background: '#1d1c16'\n  surface-variant: '#e7e2d8'\ntypography:\n  display-lg:\n    fontFamily: Playfair Display\n    fontSize: 30px\n    fontWeight: '700'\n    lineHeight: 38px\n    letterSpacing: -0.01em\n  headline-lg:\n    fontFamily: Playfair Display\n    fontSize: 22px\n    fontWeight: '700'\n    lineHeight: 28px\n  headline-md:\n    fontFamily: Playfair Display\n    fontSize: 18px\n    fontWeight: '600'\n    lineHeight: 24px\n  title-md:\n    fontFamily: Inter\n    fontSize: 15px\n    fontWeight: '600'\n    lineHeight: 20px\n  body-lg:\n    fontFamily: Inter\n    fontSize: 14px\n    fontWeight: '400'\n    lineHeight: 20px\n  body-md:\n    fontFamily: Inter\n    fontSize: 13px\n    fontWeight: '400'\n    lineHeight: 18px\n  label-md:\n    fontFamily: Inter\n    fontSize: 12px\n    fontWeight: '600'\n    lineHeight: 16px\n  label-sm:\n    fontFamily: Inter\n    fontSize: 10px\n    fontWeight: '500'\n    lineHeight: 14px\nrounded:\n  sm: 0.25rem\n  DEFAULT: 0.5rem\n  md: 0.75rem\n  lg: 1rem\n  xl: 1.5rem\n  full: 9999px\nspacing:\n  gutter: 0.75rem\n  margin: 1.25rem\n  space-xs: 0.25rem\n  space-sm: 0.5rem\n  space-md: 0.75rem\n  space-lg: 1rem\n  space-xl: 1.5rem\n---\n\n## Brand & Style\nThe design system delivers an authentic cultural sanctuary rooted in traditional Indonesian performing arts, dance theater, and royal Javanese heritage. Balancing reverence for ancestral traditions with refined, contemporary mobile usability, the interface targets cultural enthusiasts, dancers, students, and institutional administrators.\n\nThe visual style merges **Warm Editorial Heritage** with **Minimalist Cultural Modernism**. Deep forest greens evoke sacred palace courtyards (*kraton*) and lush archipelago landscapes, paired with radiant warm golds reminiscent of gilded *prada* cloth and brass gamelan instruments. Cream and ivory parchment backdrops establish an inviting, organic tone distinct from clinical white interfaces. Subtle batik filigree accents (*parang* and *kawung* floral motifs) frame key touchpoints without overwhelming functional utility.\n\n## Colors\nThe color architecture relies on high-dignity natural tones grounded in deep botanical and mineral pigments:\n\n- **Primary & Surface Brand (`#1F4A3A` & `#14382C`):** Deep royal botanical green and shadowy deepest green establish focal authority, primary CTAs, active tab highlights, and immersive dark login hero viewports.\n- **Accent Gold (`#C8A25A`):** Gilded warmth reserved for cultural highlights, ornamental emblems, step counters, badges, and high-value interactive states.\n- **Canvas & Elevation Tones:**\n  - Base Background: Canvas Cream (`#F6F1E7`).\n  - Card & Container Surface: Soft Parchment (`#FBF8F2`).\n  - Elevated Popovers & Dialogs: Crisp Ivory (`#FFFFFF`).\n- **Semantic & State Accents:**\n  - Destructive & Error: Crimson Red (`#D64545`).\n  - Form Placeholder & Inactive Border: Warm Gray (`#9A9A94`).\n  - Low-Contrast Divider: Muted Cream Border (`#E8E0D2`).\n- **Administrative Stat Metric Surfaces:**\n  - Mint Surface: `#DDEBE3` (Total Galeri / positive metrics).\n  - Peach Surface: `#F6E1D6` (Total Pengguna / registration metrics).\n  - Light Peach Surface: `#F9EBE3` (Pesanan Masuk / incoming orders).\n  - Gray-Lavender Surface: `#E6E8EE` (Kegiatan / events & schedule metrics).\n\n## Typography\nThe typographic hierarchy establishes deliberate friction between literary tradition and technical precision:\n\n- **Headings (Playfair Display):** Conveys the artistic, storytelling quality of Indonesian performance art. Employed across section headers, gallery performance titles, dialog greetings, and royal hero statements.\n- **Body & Data UI (Inter):** Highly legible, neutral workhorse that delivers effortless readability for catalog specifications, ticket dates, inventory IDs, and administrative metrics.\n- Keep numbers inside metric cards and pricing figures in **Inter Medium** or **SemiBold** to guarantee crisp legibility against pastel containers.\n\n## Layout & Spacing\nDesigned precisely for standard mobile viewport proportions (390 × 844 px), utilizing an 8-point base spatial cadence:\n\n- **Horizontal Canvas Margin:** A constant `1.25rem` (20px) margin maintains safe touch zones from viewport edges.\n- **Grid Structure:** 2-column card layouts use a tight `0.75rem` (12px) gutter for two-up gallery cards and costume rental listings. Single-column lists and detail sheets utilize full container width.\n- **Bottom Navigation Bar:** Fixed at 64px height with safe area inset padding (`padding-bottom: env(safe-area-inset-bottom)`), elevating active tabs with top-centered indicator dots or filled icons in `#1F4A3A`.\n- **Vertical Section Rhythm:** Category headers use `space-xl` (24px) top margin to separate narrative collections cleanly.\n\n## Elevation & Depth\nDepth is rendered through warmth and tonal layering rather than harsh digital drop shadows:\n\n- **Surface Tiers:**\n  - Level 0 (Base Canvas): `#F6F1E7` background canvas.\n  - Level 1 (Card & List Tile): `#FBF8F2` with subtle hairline outline `1px solid rgba(31, 74, 58, 0.08)` and ambient shadow `0 2px 8px rgba(20, 56, 44, 0.04)`.\n  - Level 2 (Floating Action & Modal Surfaces): Pure ivory white `#FFFFFF` with ambient tint `0 8px 24px rgba(20, 56, 44, 0.12)`.\n  - Level 3 (Dimmed Modal Scrim): Deepest green scrim `rgba(20, 56, 44, 0.65)` layered beneath confirmation prompts (e.g., *Keluar dari akun?* dialogs).\n- **Ornamental Elevation:** Gold filigree borders use faint metallic glow overlays (`drop-shadow(0 1px 2px rgba(200, 162, 90, 0.35))`).\n\n## Shapes\nThe shape system balances soft comfort with structured mobile alignment:\n\n- **Cards & Content Tiles:** `14px` border radius (`rounded-lg`), softening photographic imagery of traditional dances while fitting comfortably on compact screens.\n- **Buttons (Primary, Secondary, Ghost):** `10px` border radius, creating tactile, finger-friendly targets.\n- **Form Inputs & Search Fields:** `8px` border radius, matching precise administrative form entry standards.\n- **Chips, Category Pills & Step Indicators:** Fully rounded pill (`9999px`), offering distinct affordance for selectable filters.\n- **Thumbnails:** Gallery thumbnails inherit a uniform `10px` inner radius when nested within `14px` parent cards.\n\n## Components\n\n### Buttons\n- **Primary Action:** Solid Dark Green `#1F4A3A` fill, white `#FFFFFF` text (Inter SemiBold, 14px), 10px corner radius, 48px standard touch height. On press: `#14382C`.\n- **Secondary / Outline:** 1.5px solid `#1F4A3A` with transparent background and `#1F4A3A` text.\n- **Accent Action (Gold CTA):** Solid `#C8A25A` fill with white or `#14382C` text for special cultural booking paths.\n- **Destructive Action:** Solid `#D64545` fill for confirmed exit or delete actions; outlined for cancellation prompts.\n\n### Chips & Filter Pills\n- Fully rounded (`9999px`), 32px height, 12px horizontal padding.\n- **Active State:** `#1F4A3A` background with crisp white typography.\n- **Inactive State:** Transparent or Parchment `#FBF8F2` background with `#9A9A94` or `#1F4A3A` text and a subtle `1px solid rgba(31,74,58,0.15)` border.\n\n### Input Fields & Search Bars\n- 44px height, 8px radius, background `#FFFFFF` or `#FBF8F2`.\n- Border `1px solid rgba(154, 154, 148, 0.4)`. Active focus transition to `1.5px solid #1F4A3A`.\n- Placeholder text in `#9A9A94` (Inter 13px Regular).\n- Prefix icons (e.g., search magnifying glass) sized at 18px in `#1F4A3A`.\n\n### Cards & Tile Lists\n- **Gallery Item Card:** Vertical stack with `14px` radius, image container fixed at 1:1 or 4:3 aspect ratio, `#FBF8F2` parchment base, headline in Playfair Display (15px), tag in Inter 11px.\n- **Admin Metric Card:** Colored tinted container (`#DDEBE3`, `#F6E1D6`, `#F9EBE3`, `#E6E8EE`), 14px radius, padded with 16px, displaying large stat figures (Inter 20px Bold) and label (Inter 12px Regular).\n- **List Rows (Settings / Profile):** Full-width card row, 14px radius, icon with rounded square background, title in Inter 14px Medium, chevron-right icon in `#9A9A94`.\n\n### Navigation Bar & Tab Architecture\n- **User Role (4 Tabs):** *Beranda*, *Galeri*, *Pesanan*, *Profil*.\n- **Admin Role (5 Tabs):** *Dashboard*, *Galeri*, *Pesanan*, *Pengguna*, *Pengaturan*.\n- Background: `#FBF8F2` with top border `1px solid rgba(31, 74, 58, 0.08)`. Active tab displays filled icon in `#1F4A3A` with bold label; inactive in `#9A9A94`.",
+    "colorVariant": "FIDELITY",
+    "overridePrimaryColor": "#1f4a3a",
+    "overrideSecondaryColor": "#c8a25a",
+    "overrideTertiaryColor": "#14382c",
+    "overrideNeutralColor": "#f6f1e7",
+    "spacingScale": 2,
+    "typography": {
+      "body-md": {
+        "fontFamily": "Inter",
+        "fontSize": "13px",
+        "fontWeight": "400",
+        "lineHeight": "18px"
+      },
+      "title-md": {
+        "fontFamily": "Inter",
+        "fontSize": "15px",
+        "fontWeight": "600",
+        "lineHeight": "20px"
+      },
+      "body-lg": {
+        "fontFamily": "Inter",
+        "fontSize": "14px",
+        "fontWeight": "400",
+        "lineHeight": "20px"
+      },
+      "headline-md": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "18px",
+        "fontWeight": "600",
+        "lineHeight": "24px"
+      },
+      "display-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "30px",
+        "fontWeight": "700",
+        "lineHeight": "38px",
+        "letterSpacing": "-0.01em"
+      },
+      "label-md": {
+        "fontFamily": "Inter",
+        "fontSize": "12px",
+        "fontWeight": "600",
+        "lineHeight": "16px"
+      },
+      "label-sm": {
+        "fontFamily": "Inter",
+        "fontSize": "10px",
+        "fontWeight": "500",
+        "lineHeight": "14px"
+      },
+      "headline-lg": {
+        "fontFamily": "Playfair Display",
+        "fontSize": "22px",
+        "fontWeight": "700",
+        "lineHeight": "28px"
+      }
+    },
+    "spacing": {
+      "space-xl": "1.5rem",
+      "space-lg": "1rem",
+      "space-sm": "0.5rem",
+      "space-md": "0.75rem",
+      "space-xs": "0.25rem",
+      "gutter": "0.75rem",
+      "margin": "1.25rem"
+    },
+    "headlineFontFamily": "Playfair Display",
+    "bodyFontFamily": "Inter",
+    "labelFontFamily": "Inter"
+  },
+  "screenInstances": [
+    {
+      "id": "06e150e411e647e1a4907415657c364a",
+      "sourceScreen": "projects/10730309321967783890/screens/06e150e411e647e1a4907415657c364a",
+      "x": 452,
+      "y": 12924,
+      "width": 390,
+      "height": 1232,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "074a064d7b7b4019b086b3e76053ccfd",
+      "sourceScreen": "projects/10730309321967783890/screens/074a064d7b7b4019b086b3e76053ccfd",
+      "x": 944,
+      "y": 4671,
+      "width": 390,
+      "height": 1089,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "0d3640d84701481a84a0b4ae7573c7de",
+      "sourceScreen": "projects/10730309321967783890/screens/0d3640d84701481a84a0b4ae7573c7de",
+      "y": 4726,
+      "width": 390,
+      "height": 844,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "22b35d2149e9421394035687e2b1e456",
+      "sourceScreen": "projects/10730309321967783890/screens/22b35d2149e9421394035687e2b1e456",
+      "x": 1816,
+      "y": 12220,
+      "width": 390,
+      "height": 884,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "2a817534fe5549ffbb8084648665230d",
+      "sourceScreen": "projects/10730309321967783890/screens/2a817534fe5549ffbb8084648665230d",
+      "x": 1362,
+      "y": 2330,
+      "width": 512,
+      "height": 512,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "419d8da16ef643fa8437e4376cd47f78",
+      "sourceScreen": "projects/10730309321967783890/screens/419d8da16ef643fa8437e4376cd47f78",
+      "x": 1240,
+      "y": 1371,
+      "width": 512,
+      "height": 286,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "4b91f8be9a1342738543b1c517d9e59d",
+      "sourceScreen": "projects/10730309321967783890/screens/4b91f8be9a1342738543b1c517d9e59d",
+      "x": 454,
+      "y": 12220,
+      "width": 390,
+      "height": 597,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "4c19c28330554a799126c60ccc2f292c",
+      "sourceScreen": "projects/10730309321967783890/screens/4c19c28330554a799126c60ccc2f292c",
+      "x": 1854,
+      "y": 1193,
+      "width": 512,
+      "height": 512,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "4fad1d6f-dd0f-4708-b28b-cdc78e97c9ea",
+      "sourceScreen": "projects/10730309321967783890/screens/2378347612643259470",
+      "y": 16229,
+      "width": 311,
+      "height": 878,
+      "label": "image.png",
+      "hidden": true,
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "54318607321e44ad83ab8b928795bfc2",
+      "sourceScreen": "projects/10730309321967783890/screens/54318607321e44ad83ab8b928795bfc2",
+      "x": 454,
+      "y": 8640,
+      "width": 390,
+      "height": 884,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "55863a2060374e2dbd9067ec583145f5",
+      "sourceScreen": "projects/10730309321967783890/screens/55863a2060374e2dbd9067ec583145f5",
+      "x": 1362,
+      "y": 7156,
+      "width": 390,
+      "height": 1030,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "62879ff6d61140b0a5d72f567b9f5d51",
+      "sourceScreen": "projects/10730309321967783890/screens/62879ff6d61140b0a5d72f567b9f5d51",
+      "x": 2639,
+      "y": 2260,
+      "width": 512,
+      "height": 512,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "6ab6d1c82b69495382445ab8b4a2c52a",
+      "sourceScreen": "projects/10730309321967783890/screens/6ab6d1c82b69495382445ab8b4a2c52a",
+      "x": 1362,
+      "y": 8640,
+      "width": 390,
+      "height": 884,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "6cb54164dc314b51958a9a9104971249",
+      "sourceScreen": "projects/10730309321967783890/screens/6cb54164dc314b51958a9a9104971249",
+      "x": 33,
+      "y": 2398,
+      "width": 512,
+      "height": 512,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "70c44e6a264d458b8ef9a6c0aa4b3b5f",
+      "sourceScreen": "projects/10730309321967783890/screens/70c44e6a264d458b8ef9a6c0aa4b3b5f",
+      "x": 612,
+      "y": 3382,
+      "width": 390,
+      "height": 910,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "7a61d3f52eb047d5952aa042f758b119",
+      "sourceScreen": "projects/10730309321967783890/screens/7a61d3f52eb047d5952aa042f758b119",
+      "x": 53,
+      "y": 3441,
+      "width": 390,
+      "height": 844,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "7d7623e8fe2e46648cd7536219241cc5",
+      "sourceScreen": "projects/10730309321967783890/screens/7d7623e8fe2e46648cd7536219241cc5",
+      "x": 2318,
+      "y": 4687,
+      "width": 390,
+      "height": 844,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "801d072a-95b7-4cf4-b368-e0387dcac09e",
+      "sourceScreen": "projects/10730309321967783890/screens/6845568294927790086",
+      "y": 13624,
+      "width": 257,
+      "height": 803,
+      "label": "image.png",
+      "hidden": true,
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "80a7c30f-e186-4056-88ec-0cb619f89575",
+      "sourceScreen": "projects/10730309321967783890/screens/6845568294927790388",
+      "x": 321,
+      "y": 13624,
+      "width": 355,
+      "height": 879,
+      "label": "image.png",
+      "hidden": true,
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "80f32f4030b44645b9a7d14bb5fefee4",
+      "sourceScreen": "projects/10730309321967783890/screens/80f32f4030b44645b9a7d14bb5fefee4",
+      "x": 1362,
+      "y": 12220,
+      "width": 390,
+      "height": 780,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "8223a2a19cbe49d6a87fba6b66f3d77e",
+      "sourceScreen": "projects/10730309321967783890/screens/8223a2a19cbe49d6a87fba6b66f3d77e",
+      "y": 8640,
+      "width": 390,
+      "height": 884,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "84a401ef2af64cb0bbbb1b9b71d95dab",
+      "sourceScreen": "projects/10730309321967783890/screens/84a401ef2af64cb0bbbb1b9b71d95dab",
+      "x": 612,
+      "y": 1272,
+      "width": 512,
+      "height": 512,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "8b05edc62cf342188debbd8528a37403",
+      "sourceScreen": "projects/10730309321967783890/screens/8b05edc62cf342188debbd8528a37403",
+      "x": 473,
+      "y": 4670,
+      "width": 390,
+      "height": 975,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "8f900f4635cc47a2acff8979d7bd342b",
+      "sourceScreen": "projects/10730309321967783890/screens/8f900f4635cc47a2acff8979d7bd342b",
+      "x": 2270,
+      "y": 12220,
+      "width": 390,
+      "height": 844,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "94587d0f-9eeb-4074-a3df-a644576a98a0",
+      "sourceScreen": "projects/10730309321967783890/screens/5842828858759095998",
+      "y": 11630,
+      "width": 512,
+      "height": 334,
+      "label": "image.png",
+      "hidden": true,
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "9a0da55e-91d5-49e0-8066-685a85daa1aa",
+      "sourceScreen": "projects/10730309321967783890/screens/7980788130238732839",
+      "width": 512,
+      "height": 910,
+      "label": "Mockup UI Galeri Sriwedari User dan Admin.png",
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "assets_bcfecd5589524fb9915e136ede3d2259",
+      "x": 1140,
+      "width": 960,
+      "height": 540,
+      "sourceAsset": "assets/bcfecd5589524fb9915e136ede3d2259",
+      "type": "DESIGN_SYSTEM_INSTANCE"
+    },
+    {
+      "id": "b5f0e639-3e65-4d3a-a059-b2326b671e9e",
+      "sourceScreen": "projects/10730309321967783890/screens/7980788130238734237",
+      "x": 576,
+      "width": 500,
+      "height": 500,
+      "label": "WhatsApp_Image_2026-10-03_at_02.20.07-removebg-preview.png",
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "b9668d904c3b485f8a1114128091abd8",
+      "sourceScreen": "projects/10730309321967783890/screens/b9668d904c3b485f8a1114128091abd8",
+      "x": 454,
+      "y": 7156,
+      "width": 390,
+      "height": 1227,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "b96e524f6b4d487b8080729728d9e9ae",
+      "sourceScreen": "projects/10730309321967783890/screens/b96e524f6b4d487b8080729728d9e9ae",
+      "x": 908,
+      "y": 8640,
+      "width": 390,
+      "height": 884,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "be6ceba4b9bb4fa19db472c2a4ff61c3",
+      "sourceScreen": "projects/10730309321967783890/screens/be6ceba4b9bb4fa19db472c2a4ff61c3",
+      "x": 1140,
+      "y": 3396,
+      "width": 390,
+      "height": 985,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "d4491a72420c4f77bd3cc26dbcc1ecf5",
+      "sourceScreen": "projects/10730309321967783890/screens/d4491a72420c4f77bd3cc26dbcc1ecf5",
+      "x": 908,
+      "y": 7156,
+      "width": 390,
+      "height": 1071,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "dcaadebe087745f6ab66ac3b86427cf4",
+      "sourceScreen": "projects/10730309321967783890/screens/dcaadebe087745f6ab66ac3b86427cf4",
+      "y": 14759,
+      "width": 390,
+      "height": 934,
+      "label": "Generating Screen...",
+      "hidden": true
+    },
+    {
+      "id": "dcd45c8e45e540da882f8d8bddfbc7d2",
+      "sourceScreen": "projects/10730309321967783890/screens/dcd45c8e45e540da882f8d8bddfbc7d2",
+      "y": 1166,
+      "width": 512,
+      "height": 917,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "eec032d860ea4cb4aef0faec679e5e31",
+      "sourceScreen": "projects/10730309321967783890/screens/eec032d860ea4cb4aef0faec679e5e31",
+      "x": 2014,
+      "y": 2398,
+      "width": 512,
+      "height": 512,
+      "label": "Generating Image..."
+    },
+    {
+      "id": "f22cd016b4494c808dabb378df73b398",
+      "sourceScreen": "projects/10730309321967783890/screens/f22cd016b4494c808dabb378df73b398",
+      "x": 1410,
+      "y": 4679,
+      "width": 390,
+      "height": 884,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "f36e9e933f0e4748b823ea0e343e4871",
+      "sourceScreen": "projects/10730309321967783890/screens/f36e9e933f0e4748b823ea0e343e4871",
+      "x": 908,
+      "y": 12220,
+      "width": 390,
+      "height": 599,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "f4f7e97674cb41feb0e6e45fb6d56da0",
+      "sourceScreen": "projects/10730309321967783890/screens/f4f7e97674cb41feb0e6e45fb6d56da0",
+      "y": 12220,
+      "width": 390,
+      "height": 1388,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "f5f087a87fc34bf6ac8439fc0bde5c92",
+      "sourceScreen": "projects/10730309321967783890/screens/f5f087a87fc34bf6ac8439fc0bde5c92",
+      "x": 9,
+      "y": 7165,
+      "width": 390,
+      "height": 884,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "f8a54979-2c52-485d-9dd3-76dc2d8fb6cd",
+      "sourceScreen": "projects/10730309321967783890/screens/6918491194947731762",
+      "y": 10790,
+      "width": 512,
+      "height": 584,
+      "label": "image.png",
+      "hidden": true,
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "fa15383c-6846-49f8-83c4-732d00f8ae54",
+      "sourceScreen": "projects/10730309321967783890/screens/3210355591579493954",
+      "y": 9780,
+      "width": 248,
+      "height": 754,
+      "label": "image.png",
+      "hidden": true,
+      "type": "SCREEN_INSTANCE"
+    },
+    {
+      "id": "fa5e657a3d4948b3b19f4160e422aec4",
+      "sourceScreen": "projects/10730309321967783890/screens/fa5e657a3d4948b3b19f4160e422aec4",
+      "x": 1854,
+      "y": 4672,
+      "width": 390,
+      "height": 1088,
+      "label": "Generating Screen..."
+    },
+    {
+      "id": "fc534ca5741e4e9d9d7fe8120b15d627",
+      "sourceScreen": "projects/10730309321967783890/screens/fc534ca5741e4e9d9d7fe8120b15d627",
+      "x": 786,
+      "y": 2330,
+      "width": 512,
+      "height": 512,
+      "label": "Generating Image..."
+    }
+  ],
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}

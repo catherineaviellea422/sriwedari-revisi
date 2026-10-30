@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand: #1F4A3A;
+  --color-brand-dark: #14382C;
+  --color-gold: #C8A25A;
+  --color-canvas: #F6F1E7;
+  --color-parchment: #FBF8F2;
+  --color-divider: #E8E0D2;
+  --color-text: #1d1c16;
+  --color-text-muted: #414944;
+  --color-text-subtle: #717974;
+}
+
+body {
+  background-color: #FEF9EF;
+  color: #1d1c16;
+  font-feature-settings: "lnum" 1;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF1D0 0%, #C8A25A 60%, #9B7832 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.num, .price, [data-num], [id^="stat"], [id*="price"], [id*="total"], [id*="count"], [id*="quota"], [id*="stock"] {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
