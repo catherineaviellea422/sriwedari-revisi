@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { verifySessionToken } from './backend';
+import { verifySessionToken } from './backend/security/session';
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
