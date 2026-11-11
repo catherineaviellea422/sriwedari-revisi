@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ServerDB } from '@/lib/server-db';
-import { requireAuth, hashPassword } from '@/lib/session';
+import { ServerDB, requireAuth, hashPassword } from '@/backend';
 
 export async function GET(req: Request) {
   const auth = await requireAuth(req, 'admin');

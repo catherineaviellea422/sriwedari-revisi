@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ServerDB } from '@/lib/server-db';
-import { createSessionToken, hashPassword } from '@/lib/session';
+import { ServerDB, createSessionToken, hashPassword } from '@/backend';
 import { UserItem, Role } from '@/lib/types';
 
 export async function POST(req: Request) {

@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ServerDB } from '@/lib/server-db';
-import { requireAuth } from '@/lib/session';
+import { ServerDB, requireAuth } from '@/backend';
 
 export async function GET() {
   const settings = ServerDB.getSettings();

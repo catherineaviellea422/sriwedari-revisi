@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ServerDB } from '@/lib/server-db';
-import { getServerSession, requireAuth } from '@/lib/session';
+import { ServerDB, getServerSession, requireAuth } from '@/backend';
 
 export async function GET(req: Request) {
   const session = await getServerSession(req);

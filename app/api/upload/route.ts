@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
-import { getServerSession } from '@/lib/session';
+import { getServerSession } from '@/backend';
 
 export async function POST(req: Request) {
   try {

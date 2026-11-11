@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { verifySessionToken } from '@/lib/session';
-import { ServerDB } from '@/lib/server-db';
+import { ServerDB, verifySessionToken } from '@/backend';
 
 export async function GET() {
   const cookieStore = cookies();
