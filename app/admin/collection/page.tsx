@@ -144,8 +144,18 @@ export default function AdminCollectionPage() {
                   </div>
                 </div>
                 <div className="p-4 pt-2 border-t border-brand-gold/15 flex items-center justify-between text-[11px] text-canvas/60">
-                  <span>{item.views} views</span>
-                  <span className="text-red-400 font-medium">{item.likes} likes</span>
+                  <div className="flex items-center gap-3">
+                    <span>{item.views} views</span>
+                    <span className="text-red-400 font-medium">{item.likes} likes</span>
+                  </div>
+                  <Link
+                    href={`/collection/${item.id}`}
+                    target="_blank"
+                    className="text-brand-gold hover:underline font-semibold flex items-center gap-1 text-[10px]"
+                  >
+                    <span>Pratinjau Publik</span>
+                    <span className="material-symbols-outlined text-xs">open_in_new</span>
+                  </Link>
                 </div>
               </div>
             ))}

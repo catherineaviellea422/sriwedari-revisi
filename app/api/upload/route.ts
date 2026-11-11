@@ -18,19 +18,19 @@ export async function POST(req: Request) {
     }
 
     // Validate MIME type
-    const validMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
+    const validMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg', 'image/gif'];
     if (!validMimes.includes(file.type)) {
       return NextResponse.json(
-        { success: false, error: 'Format berkas harus berupa gambar (JPG, PNG, atau WebP)' },
+        { success: false, error: 'Format berkas harus berupa gambar (JPG, PNG, WebP, atau GIF)' },
         { status: 400 }
       );
     }
 
-    // Validate size (max 5MB)
-    const MAX_SIZE = 5 * 1024 * 1024;
+    // Validate size (max 10MB)
+    const MAX_SIZE = 10 * 1024 * 1024;
     if (file.size > MAX_SIZE) {
       return NextResponse.json(
-        { success: false, error: 'Ukuran berkas maksimal 5 MB' },
+        { success: false, error: 'Ukuran berkas maksimal 10 MB' },
         { status: 400 }
       );
     }
@@ -44,7 +44,9 @@ export async function POST(req: Request) {
     // Create unique safe filename
     const ext = file.name.split('.').pop()?.toLowerCase() || 'png';
     const cleanExt = ext === 'jpeg' ? 'jpg' : ext;
-    const filename = `slip-${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${cleanExt}`;
+    const rawPrefix = (formData.get('prefix') as string) || 'img';
+    const cleanPrefix = rawPrefix.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 20) || 'img';
+    const filename = `${cleanPrefix}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${cleanExt}`;
     const filePath = path.join(uploadsDir, filename);
 
     // Write file to disk
@@ -59,7 +61,7 @@ export async function POST(req: Request) {
       url: publicUrl,
       filename,
       size: file.size,
-      message: 'Berkas bukti transfer berhasil disimpan ke penyimpanan server',
+      message: 'Berkas gambar berhasil disimpan ke penyimpanan server',
     });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message || 'Gagal mengunggah berkas' }, { status: 500 });

@@ -149,11 +149,14 @@ export default function GalleryDetailPage({ params }: { params: { id: string } }
           </div>
 
           {/* Philosophy & Narrative */}
-          <div className="space-y-2">
-            <h3 className="font-serif text-base font-bold text-primary">Filosofi &amp; Narasi Budaya</h3>
-            <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+          <div className="p-5 sm:p-6 rounded-2xl bg-surface-container-low border border-divider space-y-3">
+            <div className="flex items-center gap-2 border-b border-divider pb-2.5">
+              <span className="material-symbols-outlined text-brand-gold text-lg">auto_stories</span>
+              <h3 className="font-serif text-base font-bold text-primary">Filosofi &amp; Narasi Sejarah Budaya</h3>
+            </div>
+            <div className="text-xs sm:text-sm text-on-surface-variant leading-relaxed whitespace-pre-line break-words space-y-2 font-serif sm:font-sans">
               {item.description}
-            </p>
+            </div>
           </div>
 
           {/* Actions */}
