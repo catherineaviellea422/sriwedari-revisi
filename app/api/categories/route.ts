@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { ServerDB } from '@/lib/server-db';
+import { requireAuth } from '@/lib/session';
 
 export async function GET() {
   const categories = ServerDB.getCategories();
@@ -7,6 +8,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  const auth = await requireAuth(req, 'admin');
+  if ('errorResponse' in auth) return auth.errorResponse;
+
   try {
     const body = await req.json();
     if (!body.name) {
@@ -20,6 +24,9 @@ export async function POST(req: Request) {
 }
 
 export async function DELETE(req: Request) {
+  const auth = await requireAuth(req, 'admin');
+  if ('errorResponse' in auth) return auth.errorResponse;
+
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');
@@ -32,4 +39,3 @@ export async function DELETE(req: Request) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
-

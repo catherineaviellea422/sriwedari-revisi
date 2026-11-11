@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { ServerDB } from '@/lib/server-db';
+import { requireAuth } from '@/lib/session';
 
 export async function GET() {
   const settings = ServerDB.getSettings();
@@ -7,6 +8,9 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
+  const auth = await requireAuth(req, 'admin');
+  if ('errorResponse' in auth) return auth.errorResponse;
+
   try {
     const body = await req.json();
     const saved = ServerDB.saveSettings(body);
@@ -16,12 +20,18 @@ export async function POST(req: Request) {
   }
 }
 
-export async function PUT() {
+export async function PUT(req: Request) {
+  const auth = await requireAuth(req, 'admin');
+  if ('errorResponse' in auth) return auth.errorResponse;
+
   try {
     const initial = ServerDB.resetDB();
-    return NextResponse.json({ success: true, message: 'Basis data berhasil dikembalikan ke kondisi awal.', data: initial });
+    return NextResponse.json({
+      success: true,
+      message: 'Basis data berhasil dikembalikan ke kondisi awal.',
+      data: initial,
+    });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
-

@@ -65,18 +65,45 @@ export default function AdminPosPage() {
     loadData();
   };
 
-  const handleScanTicket = (e: React.FormEvent) => {
+  const handleScanTicket = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!scanInput.trim()) return;
-    const res = SriwedariDB.validateGateTicket(scanInput.trim());
-    setScanResult(res);
+    const cleanCode = scanInput.trim();
+    if (!cleanCode) return;
+    try {
+      const res = await fetch('/api/tickets', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ codeOrId: cleanCode }),
+      });
+      const data = await res.json();
+      setScanResult(data);
+      if (data.success && data.ticket) {
+        SriwedariDB.validateGateTicket(cleanCode);
+      }
+    } catch {
+      const res = SriwedariDB.validateGateTicket(cleanCode);
+      setScanResult(res);
+    }
     loadData();
   };
 
-  const handleQuickTestScan = (code: string) => {
+  const handleQuickTestScan = async (code: string) => {
     setScanInput(code);
-    const res = SriwedariDB.validateGateTicket(code);
-    setScanResult(res);
+    try {
+      const res = await fetch('/api/tickets', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ codeOrId: code }),
+      });
+      const data = await res.json();
+      setScanResult(data);
+      if (data.success && data.ticket) {
+        SriwedariDB.validateGateTicket(code);
+      }
+    } catch {
+      const res = SriwedariDB.validateGateTicket(code);
+      setScanResult(res);
+    }
     loadData();
   };
 

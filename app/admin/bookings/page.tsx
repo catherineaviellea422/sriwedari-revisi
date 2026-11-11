@@ -95,7 +95,7 @@ export default function AdminBookingsPage() {
 
       {/* Filter Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-        {['all', 'with_proof', 'Menunggu', 'Dikonfirmasi', 'Sedang Disewa', 'Selesai', 'Dibatalkan'].map((st) => (
+        {['all', 'with_proof', 'Menunggu', 'Dikonfirmasi', 'Sedang Disewa', 'Selesai', 'Dibatalkan', 'Kedaluwarsa'].map((st) => (
           <button
             key={st}
             type="button"
@@ -110,7 +110,7 @@ export default function AdminBookingsPage() {
               ? `Semua (${orders.length})`
               : st === 'with_proof'
               ? `Ada Slip Transfer (${orders.filter(o => o.paymentProof).length})`
-              : st}
+              : `${st} (${orders.filter(o => o.status === st).length})`}
           </button>
         ))}
       </div>
@@ -185,11 +185,18 @@ export default function AdminBookingsPage() {
                         ? 'bg-purple-500/20 text-purple-300 border-purple-500/40'
                         : ord.status === 'Dibatalkan'
                         ? 'bg-red-500/20 text-red-300 border-red-500/40'
+                        : ord.status === 'Kedaluwarsa'
+                        ? 'bg-stone-500/20 text-stone-300 border-stone-500/40'
                         : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
                     }`}
                   >
                     {ord.status}
                   </span>
+                  {ord.status === 'Menunggu' && ord.holdExpiresAt && (
+                    <span className="block text-[9px] text-amber-300/80 mt-1 font-mono">
+                      Batas: {new Date(ord.holdExpiresAt).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}
+                    </span>
+                  )}
                   {ord.qcStatus && (
                     <span className="block text-[10px] text-brand-gold mt-1">
                       QC: {ord.qcStatus} ({formatRupiah(ord.refundAmount || 0)})
@@ -199,12 +206,21 @@ export default function AdminBookingsPage() {
                 <td className="py-3.5 px-4 text-right">
                   <div className="flex items-center justify-end gap-1.5">
                     {ord.status === 'Menunggu' && (
-                      <button
-                        onClick={() => handleUpdateStatus(ord.id, 'Dikonfirmasi')}
-                        className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold"
-                      >
-                        Konfirmasi
-                      </button>
+                      <>
+                        <button
+                          onClick={() => handleUpdateStatus(ord.id, 'Dikonfirmasi')}
+                          className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold"
+                        >
+                          Konfirmasi
+                        </button>
+                        <button
+                          onClick={() => handleUpdateStatus(ord.id, 'Dibatalkan')}
+                          className="px-2 py-1 rounded-lg bg-red-950/80 hover:bg-red-900 border border-red-500/30 text-red-300 text-[11px]"
+                          title="Batalkan pesanan dan kembalikan stok busana"
+                        >
+                          Batal
+                        </button>
+                      </>
                     )}
                     {ord.status === 'Dikonfirmasi' && (
                       <button

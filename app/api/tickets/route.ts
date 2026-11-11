@@ -1,17 +1,29 @@
 import { NextResponse } from 'next/server';
 import { ServerDB } from '@/lib/server-db';
+import { getServerSession, requireAuth } from '@/lib/session';
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const eventId = searchParams.get('eventId');
 
+  // Public endpoint for seating chart booked seats
   if (eventId) {
     const bookedSeats = ServerDB.getBookedSeats(eventId);
     return NextResponse.json({ success: true, bookedSeats });
   }
 
-  const tickets = ServerDB.getTickets();
-  return NextResponse.json({ success: true, data: tickets });
+  const session = await getServerSession(req);
+  if (!session) {
+    return NextResponse.json({ success: false, error: 'Sesi diperlukan untuk melihat daftar tiket' }, { status: 401 });
+  }
+
+  const allTickets = ServerDB.getTickets();
+  if (session.role === 'admin') {
+    return NextResponse.json({ success: true, data: allTickets });
+  }
+
+  const userTickets = allTickets.filter(t => t.userName === session.name);
+  return NextResponse.json({ success: true, data: userTickets });
 }
 
 export async function POST(req: Request) {
@@ -45,6 +57,9 @@ export async function POST(req: Request) {
 }
 
 export async function PATCH(req: Request) {
+  const auth = await requireAuth(req, 'admin');
+  if ('errorResponse' in auth) return auth.errorResponse;
+
   try {
     const { codeOrId } = await req.json();
     if (!codeOrId) {

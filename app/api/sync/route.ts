@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { ServerDB } from '@/lib/server-db';
+import { getServerSession } from '@/lib/session';
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
-    const fullState = ServerDB.getFullState();
-    return NextResponse.json({ success: true, data: fullState });
+    const session = await getServerSession(req);
+    const sanitizedState = ServerDB.getSanitizedStateForUser(session);
+    return NextResponse.json({ success: true, data: sanitizedState });
   } catch (err: any) {
     return NextResponse.json({ success: false, error: err.message }, { status: 500 });
   }
 }
-

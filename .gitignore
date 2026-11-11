@@ -27,6 +27,10 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# persistent local data
+data/*.json
+!data/*.example.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -34,3 +38,4 @@ next-env.d.ts
 # editor
 .vscode/
 .idea/
+

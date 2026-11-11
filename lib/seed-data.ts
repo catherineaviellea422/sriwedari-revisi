@@ -332,7 +332,7 @@ export const INITIAL_USERS: UserItem[] = [
     status: 'active',
     points: 1500,
     registeredAt: '2024-01-01',
-    password: 'rahasia123',
+    password: 'pbkdf2:100000:5cbd0eb10e89c0951f298ac4c151f35c:076250586c8d3b0b96679f90ec9ab625c6d94383729d1d118ed3c38c33fe866c',
   },
   {
     id: 'usr-user-1',
@@ -343,7 +343,7 @@ export const INITIAL_USERS: UserItem[] = [
     status: 'active',
     points: 420,
     registeredAt: '2025-06-15',
-    password: 'rahasia123',
+    password: 'pbkdf2:100000:5cbd0eb10e89c0951f298ac4c151f35c:076250586c8d3b0b96679f90ec9ab625c6d94383729d1d118ed3c38c33fe866c',
   },
   {
     id: 'usr-user-2',
@@ -354,7 +354,7 @@ export const INITIAL_USERS: UserItem[] = [
     status: 'active',
     points: 120,
     registeredAt: '2026-02-10',
-    password: 'rahasia123',
+    password: 'pbkdf2:100000:5cbd0eb10e89c0951f298ac4c151f35c:076250586c8d3b0b96679f90ec9ab625c6d94383729d1d118ed3c38c33fe866c',
   },
 ];
 

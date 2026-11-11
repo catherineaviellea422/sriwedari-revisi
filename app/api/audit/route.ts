@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server';
 import { ServerDB } from '@/lib/server-db';
+import { requireAuth } from '@/lib/session';
 
 export async function GET(req: Request) {
+  const auth = await requireAuth(req, 'admin');
+  if ('errorResponse' in auth) return auth.errorResponse;
+
   const { searchParams } = new URL(req.url);
   const format = searchParams.get('format');
 
@@ -19,4 +23,3 @@ export async function GET(req: Request) {
   const logs = ServerDB.getAuditLogs();
   return NextResponse.json({ success: true, data: logs });
 }
-

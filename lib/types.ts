@@ -11,6 +11,7 @@ export interface UserItem {
   points: number;
   registeredAt: string;
   password?: string;
+  passwordChangedAt?: string;
 }
 
 export interface GalleryItem {
@@ -46,6 +47,7 @@ export interface CostumeItem {
   reviewCount?: number;
   stock: number;
   sizes: string[];
+  sizeStocks?: Record<string, number>;
   image: string;
   description: string;
   origin?: string;
@@ -73,13 +75,17 @@ export interface OrderItem {
   depositFee: number;
   discountAmount?: number;
   couponCode?: string;
-  status: 'Menunggu' | 'Dikonfirmasi' | 'Sedang Disewa' | 'Selesai' | 'Dibatalkan';
+  status: 'Menunggu' | 'Dikonfirmasi' | 'Sedang Disewa' | 'Selesai' | 'Dibatalkan' | 'Kedaluwarsa';
   paymentMethod: 'QRIS' | 'VA' | 'Tunai';
   paymentProof?: string;
   qcStatus?: 'Pending' | 'Grade A' | 'Grade B' | 'Grade C' | 'Grade D';
   refundAmount?: number;
   deductionNote?: string;
   createdAt: string;
+  holdExpiresAt?: string;
+  completedAt?: string;
+  refundStatus?: 'tidak_ada' | 'menunggu' | 'selesai';
+  cancelReason?: string;
 }
 
 export interface EventItem {
@@ -148,6 +154,7 @@ export interface ReviewItem {
   comment: string;
   createdAt: string;
   verified: boolean;
+  status?: 'tampil' | 'disembunyikan';
 }
 
 export interface SettingsItem {
@@ -160,4 +167,22 @@ export interface SettingsItem {
   depositFee: number;
   terms: string;
   notifications: boolean;
+  holdDurationMinutes?: number;
+  refundWindowDays?: number;
+  lowStockThreshold?: number;
+  whatsappAdminNumber?: string;
+}
+
+export interface StockMovementItem {
+  id: string;
+  costumeId: string;
+  costumeName: string;
+  size: string;
+  delta: number;
+  stockAfter: number;
+  reason: 'barang_masuk' | 'disewa' | 'dikembalikan' | 'rusak_hilang' | 'koreksi';
+  note?: string;
+  actorName: string;
+  orderId?: string;
+  createdAt: string;
 }

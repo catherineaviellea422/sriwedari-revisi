@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { ServerDB } from '@/lib/server-db';
-import { createSessionToken } from '@/lib/session';
+import { createSessionToken, hashPassword } from '@/lib/session';
 import { UserItem, Role } from '@/lib/types';
 
 export async function POST(req: Request) {
@@ -52,14 +52,16 @@ export async function POST(req: Request) {
       );
     }
 
-    // 3. Create new persistent UserItem
+    // 3. Create new persistent UserItem with hashed password
+    const hashedPassword = await hashPassword(cleanPassword);
     const newUserId = 'usr-' + Date.now();
     const newUser: UserItem = {
       id: newUserId,
       name: cleanName,
       email: cleanEmail,
       phone: cleanPhone || '-',
-      password: cleanPassword,
+      password: hashedPassword,
+      passwordChangedAt: new Date().toISOString(),
       role: targetRole,
       status: 'active',
       points: targetRole === 'admin' ? 1000 : 250,

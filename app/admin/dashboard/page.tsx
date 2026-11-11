@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { SriwedariDB } from '@/lib/db';
-import { OrderItem, GalleryItem, UserItem, TicketItem, EventItem } from '@/lib/types';
+import { OrderItem, GalleryItem, UserItem, TicketItem, EventItem, CostumeItem } from '@/lib/types';
 import { formatRupiah } from '@/lib/utils';
 
 export default function AdminDashboardPage() {
@@ -12,6 +12,7 @@ export default function AdminDashboardPage() {
   const [users, setUsers] = useState<UserItem[]>([]);
   const [tickets, setTickets] = useState<TicketItem[]>([]);
   const [events, setEvents] = useState<EventItem[]>([]);
+  const [costumes, setCostumes] = useState<CostumeItem[]>([]);
   const [activeDayHover, setActiveDayHover] = useState<number | null>(null);
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function AdminDashboardPage() {
     setUsers(SriwedariDB.getUsers());
     setTickets(SriwedariDB.getTickets());
     setEvents(SriwedariDB.getEvents());
+    setCostumes(SriwedariDB.getCostumes());
   };
 
   // Calculations
@@ -310,6 +312,94 @@ export default function AdminDashboardPage() {
             <span className="material-symbols-outlined text-sm">security</span>
             <span>Audit Trail &amp; Keamanan Kas</span>
           </Link>
+        </div>
+      </div>
+
+      {/* Operational Watchlist: Low Stock & Action Required */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Low Stock Alert */}
+        <div className="p-5 rounded-3xl bg-[#14382C]/80 border border-brand-gold/20 space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-amber-400 text-lg">warning</span>
+              <h3 className="font-serif text-sm font-bold text-white">
+                Peringatan Stok Busana Menipis
+              </h3>
+            </div>
+            <span className="text-[10px] text-canvas/50">Batas ambang: &le; 2 unit</span>
+          </div>
+
+          {costumes.filter(c => c.stock <= 2).length === 0 ? (
+            <p className="text-xs text-canvas/60 py-3 text-center bg-black/20 rounded-xl">
+              Seluruh busana adat keraton dalam status stok aman.
+            </p>
+          ) : (
+            <div className="space-y-2">
+              {costumes
+                .filter(c => c.stock <= 2)
+                .slice(0, 3)
+                .map(c => (
+                  <div
+                    key={c.id}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-black/30 border border-amber-500/30 text-xs"
+                  >
+                    <div>
+                      <span className="font-semibold text-white block">{c.name}</span>
+                      <span className="text-[10px] text-canvas/60">Kategori: {c.category}</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold text-[10px] border border-amber-500/40">
+                        Sisa: {c.stock} unit
+                      </span>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+        </div>
+
+        {/* Action Required: Pending Orders */}
+        <div className="p-5 rounded-3xl bg-[#14382C]/80 border border-brand-gold/20 space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-emerald-400 text-lg">pending_actions</span>
+              <h3 className="font-serif text-sm font-bold text-white">
+                Pesanan Perlu Tindakan Kurator
+              </h3>
+            </div>
+            <Link
+              href="/admin/bookings"
+              className="text-[11px] text-brand-gold hover:underline font-semibold"
+            >
+              Lihat Semua
+            </Link>
+          </div>
+
+          {orders.filter(o => o.status === 'Menunggu' || (o.status === 'Sedang Disewa' && o.qcStatus === 'Pending')).length === 0 ? (
+            <p className="text-xs text-canvas/60 py-3 text-center bg-black/20 rounded-xl">
+              Tidak ada antrean pesanan yang menunggu tindakan kurator.
+            </p>
+          ) : (
+            <div className="space-y-2">
+              {orders
+                .filter(o => o.status === 'Menunggu' || (o.status === 'Sedang Disewa' && o.qcStatus === 'Pending'))
+                .slice(0, 3)
+                .map(o => (
+                  <div
+                    key={o.id}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-black/30 border border-brand-gold/20 text-xs"
+                  >
+                    <div>
+                      <span className="font-mono font-bold text-brand-gold block">{o.id}</span>
+                      <span className="text-[10px] text-canvas/70">{o.userName} • {o.costumeName}</span>
+                    </div>
+                    <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                      {o.status === 'Menunggu' ? 'Menunggu Bayar' : 'Perlu Inspeksi QC'}
+                    </span>
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </div>
 

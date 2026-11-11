@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { ServerDB } from '@/lib/server-db';
-import { createSessionToken } from '@/lib/session';
+import { createSessionToken, verifyPassword, hashPassword } from '@/lib/session';
 
 export async function POST(req: Request) {
   try {
@@ -64,13 +64,27 @@ export async function POST(req: Request) {
       );
     }
 
-    // Strict Password verification
-    const expectedPass = user.password || 'rahasia123';
-    if (cleanPassword !== expectedPass) {
+    // Strict Password verification (supports PBKDF2 hash & graceful migration)
+    if (!user.password) {
+      return NextResponse.json(
+        { success: false, error: 'Akun ini tidak memiliki kata sandi aktif. Silakan hubungi administrator.' },
+        { status: 401 }
+      );
+    }
+
+    const isMatch = await verifyPassword(cleanPassword, user.password);
+    if (!isMatch) {
       return NextResponse.json(
         { success: false, error: 'Kata sandi salah. Silakan periksa kembali kata sandi Anda.' },
         { status: 401 }
       );
+    }
+
+    // Auto-migrate plaintext password to PBKDF2 hash on successful login
+    if (!user.password.startsWith('pbkdf2:')) {
+      user.password = await hashPassword(cleanPassword);
+      user.passwordChangedAt = new Date().toISOString();
+      ServerDB.saveUser(user);
     }
 
     // Account active status check

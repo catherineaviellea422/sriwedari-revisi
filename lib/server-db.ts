@@ -2,8 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import {
   GalleryItem, CategoryItem, CostumeItem, OrderItem, EventItem, TicketItem,
-  UserItem, CouponItem, AuditLogItem, ReviewItem, SettingsItem
+  UserItem, CouponItem, AuditLogItem, ReviewItem, SettingsItem, StockMovementItem
 } from './types';
+import { SessionPayload } from './session';
 import {
   INITIAL_GALLERIES, INITIAL_CATEGORIES, INITIAL_COSTUMES, INITIAL_ORDERS,
   INITIAL_EVENTS, INITIAL_TICKETS, INITIAL_USERS, INITIAL_COUPONS,
@@ -22,6 +23,7 @@ export interface ServerDBState {
   auditLogs: AuditLogItem[];
   reviews: ReviewItem[];
   settings: SettingsItem;
+  stockMovements?: StockMovementItem[];
 }
 
 export interface AnalyticsSummary {
@@ -66,10 +68,46 @@ function getInitialState(): ServerDBState {
     auditLogs: JSON.parse(JSON.stringify(INITIAL_AUDIT_LOGS)),
     reviews: JSON.parse(JSON.stringify(INITIAL_REVIEWS)),
     settings: JSON.parse(JSON.stringify(INITIAL_SETTINGS)),
+    stockMovements: [],
   };
 }
 
 class ServerDatabaseService {
+  private checkAndExpireOrders(db: ServerDBState): boolean {
+    let changed = false;
+    const now = Date.now();
+    for (const order of db.orders || []) {
+      if (order.status === 'Menunggu' && order.holdExpiresAt) {
+        if (now > new Date(order.holdExpiresAt).getTime()) {
+          order.status = 'Kedaluwarsa';
+          order.cancelReason = 'Batas waktu penahanan (hold expiry) telah terlampaui';
+          changed = true;
+
+          // Restore costume stock
+          const costume = db.costumes.find(c => c.id === order.costumeId);
+          if (costume) {
+            costume.stock += 1;
+            if (!db.stockMovements) db.stockMovements = [];
+            db.stockMovements.unshift({
+              id: 'sm-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+              costumeId: costume.id,
+              costumeName: costume.name,
+              size: order.costumes?.[0]?.size || 'All Size',
+              delta: 1,
+              stockAfter: costume.stock,
+              reason: 'koreksi',
+              note: `Pelepasan stok otomatis: Pesanan sewa ${order.id} telah kedaluwarsa`,
+              actorName: 'Sistem Kedaluwarsa Otomatis',
+              orderId: order.id,
+              createdAt: new Date().toISOString().replace('T', ' ').slice(0, 19),
+            });
+          }
+        }
+      }
+    }
+    return changed;
+  }
+
   private loadDB(): ServerDBState {
     ensureDirectories();
     try {
@@ -81,10 +119,16 @@ class ServerDatabaseService {
       const raw = fs.readFileSync(DB_FILE, 'utf-8');
       const parsed = JSON.parse(raw);
       // Ensure all collections exist
-      return {
+      const state: ServerDBState = {
         ...getInitialState(),
         ...parsed,
       };
+
+      if (this.checkAndExpireOrders(state)) {
+        this.saveDB(state);
+      }
+
+      return state;
     } catch (err) {
       console.error('Error loading server DB, fallback to initial state', err);
       return getInitialState();
@@ -237,17 +281,36 @@ class ServerDatabaseService {
   createOrder(order: Omit<OrderItem, 'id' | 'createdAt'>): OrderItem {
     const db = this.loadDB();
     const newId = 'ORD-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+    const holdMinutes = db.settings?.holdDurationMinutes || 1440;
+    const holdExpiresAt = new Date(Date.now() + holdMinutes * 60 * 1000).toISOString();
+
     const newOrder: OrderItem = {
       ...order,
       id: newId,
       createdAt: new Date().toISOString().replace('T', ' ').slice(0, 16),
+      holdExpiresAt: order.holdExpiresAt || holdExpiresAt,
+      refundStatus: 'tidak_ada',
     };
     db.orders.unshift(newOrder);
 
-    // Decrement costume stock if available
+    // Decrement costume stock if available and record movement
     const costume = db.costumes.find(c => c.id === order.costumeId);
     if (costume && costume.stock > 0) {
       costume.stock -= 1;
+      if (!db.stockMovements) db.stockMovements = [];
+      db.stockMovements.unshift({
+        id: 'sm-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+        costumeId: costume.id,
+        costumeName: costume.name,
+        size: order.costumes?.[0]?.size || 'All Size',
+        delta: -1,
+        stockAfter: costume.stock,
+        reason: 'disewa',
+        note: `Pesanan sewa baru ${newId}`,
+        actorName: newOrder.userName,
+        orderId: newId,
+        createdAt: new Date().toISOString().replace('T', ' ').slice(0, 19),
+      });
     }
 
     this.saveDB(db);
@@ -262,10 +325,30 @@ class ServerDatabaseService {
     const prev = item.status;
     item.status = status;
 
-    // Return stock if cancelled
-    if (status === 'Dibatalkan' && prev !== 'Dibatalkan') {
+    // Return stock if cancelled or expired
+    if (
+      (status === 'Dibatalkan' || status === 'Kedaluwarsa') &&
+      prev !== 'Dibatalkan' &&
+      prev !== 'Kedaluwarsa'
+    ) {
       const costume = db.costumes.find(c => c.id === item.costumeId);
-      if (costume) costume.stock += 1;
+      if (costume) {
+        costume.stock += 1;
+        if (!db.stockMovements) db.stockMovements = [];
+        db.stockMovements.unshift({
+          id: 'sm-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+          costumeId: costume.id,
+          costumeName: costume.name,
+          size: item.costumes?.[0]?.size || 'All Size',
+          delta: 1,
+          stockAfter: costume.stock,
+          reason: 'koreksi',
+          note: `Stok dikembalikan karena status pesanan: ${status}`,
+          actorName: 'Admin/Sistem',
+          orderId: item.id,
+          createdAt: new Date().toISOString().replace('T', ' ').slice(0, 19),
+        });
+      }
     }
 
     this.saveDB(db);
@@ -283,14 +366,53 @@ class ServerDatabaseService {
 
     if (qcStatus && qcStatus !== 'Pending') {
       item.status = 'Selesai';
+      item.completedAt = new Date().toISOString().replace('T', ' ').slice(0, 19);
       // Return costume stock
       const costume = db.costumes.find(c => c.id === item.costumeId);
-      if (costume) costume.stock += 1;
+      if (costume) {
+        costume.stock += 1;
+        if (!db.stockMovements) db.stockMovements = [];
+        db.stockMovements.unshift({
+          id: 'sm-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+          costumeId: costume.id,
+          costumeName: costume.name,
+          size: item.costumes?.[0]?.size || 'All Size',
+          delta: 1,
+          stockAfter: costume.stock,
+          reason: 'dikembalikan',
+          note: `Penyewa mengembalikan busana. Lulus QC: ${qcStatus}`,
+          actorName: 'Kurator QC',
+          orderId: item.id,
+          createdAt: new Date().toISOString().replace('T', ' ').slice(0, 19),
+        });
+      }
     }
 
     this.saveDB(db);
     this.logAudit('QC_RETURN', `Inspeksi QC untuk pesanan ${orderId}: ${qcStatus}, Refund Deposit Rp ${refundAmount.toLocaleString('id-ID')}. Catatan: ${note || '-'}`, 'info', 'Kurator QC', 'Admin');
     return item;
+  }
+
+  // ==========================================
+  // STOCK MOVEMENTS
+  // ==========================================
+  getStockMovements(costumeId?: string): StockMovementItem[] {
+    const all = this.loadDB().stockMovements || [];
+    if (!costumeId) return all;
+    return all.filter(sm => sm.costumeId === costumeId);
+  }
+
+  recordStockMovement(movement: Omit<StockMovementItem, 'id' | 'createdAt'>): StockMovementItem {
+    const db = this.loadDB();
+    if (!db.stockMovements) db.stockMovements = [];
+    const newMovement: StockMovementItem = {
+      ...movement,
+      id: 'sm-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+      createdAt: new Date().toISOString().replace('T', ' ').slice(0, 19),
+    };
+    db.stockMovements.unshift(newMovement);
+    this.saveDB(db);
+    return newMovement;
   }
 
   attachPaymentProof(orderId: string, proofUrl: string): OrderItem | null {
@@ -566,11 +688,36 @@ class ServerDatabaseService {
     const newReview: ReviewItem = {
       ...review,
       id: newId,
+      status: review.status || 'tampil',
       createdAt: new Date().toISOString().replace('T', ' ').slice(0, 10),
     };
     db.reviews.unshift(newReview);
     this.saveDB(db);
     return newReview;
+  }
+
+  updateReviewStatus(id: string, status: 'tampil' | 'disembunyikan'): ReviewItem | null {
+    const db = this.loadDB();
+    if (!db.reviews) return null;
+    const item = db.reviews.find(r => r.id === id);
+    if (!item) return null;
+    item.status = status;
+    this.saveDB(db);
+    this.logAudit('UPDATE_SETTINGS', `Moderasi ulasan ${id} diubah menjadi "${status}"`, 'info', 'Admin', 'Admin');
+    return item;
+  }
+
+  deleteReview(id: string): boolean {
+    const db = this.loadDB();
+    if (!db.reviews) return false;
+    const prev = db.reviews.length;
+    db.reviews = db.reviews.filter(r => r.id !== id);
+    if (db.reviews.length !== prev) {
+      this.saveDB(db);
+      this.logAudit('UPDATE_SETTINGS', `Ulasan ID ${id} dihapus dari sistem`, 'warning', 'Admin', 'Admin');
+      return true;
+    }
+    return false;
   }
 
   // ==========================================
@@ -674,10 +821,69 @@ class ServerDatabaseService {
   }
 
   // ==========================================
-  // FULL DUMP & SYNC
+  // FULL DUMP & SYNC (SANITIZED)
   // ==========================================
   getFullState(): ServerDBState {
-    return this.loadDB();
+    const db = this.loadDB();
+    // NEVER expose passwords under any circumstance
+    const sanitizedUsers = (db.users || []).map(u => {
+      const copy = { ...u };
+      delete copy.password;
+      return copy;
+    });
+    return {
+      ...db,
+      users: sanitizedUsers,
+    };
+  }
+
+  getSanitizedStateForUser(session?: SessionPayload | null): ServerDBState {
+    const db = this.loadDB();
+
+    // 1. If Admin: return full state with sanitized users
+    if (session && session.role === 'admin') {
+      return this.getFullState();
+    }
+
+    // 2. If Registered User: only return public collections + their own orders & tickets
+    if (session && session.role === 'user') {
+      const userOrders = (db.orders || []).filter(
+        o => o.userEmail?.toLowerCase() === session.email.toLowerCase() || o.userName === session.name
+      );
+      const userTickets = (db.tickets || []).filter(
+        t => t.userName === session.name
+      );
+      return {
+        galleries: db.galleries || [],
+        categories: db.categories || [],
+        costumes: db.costumes || [],
+        events: db.events || [],
+        reviews: (db.reviews || []).filter(r => r.status !== 'disembunyikan'),
+        settings: db.settings,
+        orders: userOrders,
+        tickets: userTickets,
+        coupons: [], // Coupons only revealed/validated on checkout
+        users: [],   // No other users revealed
+        auditLogs: [], // Audit logs strictly admin-only
+        stockMovements: [],
+      };
+    }
+
+    // 3. Guest / Anonymous Visitor: strictly public data only
+    return {
+      galleries: db.galleries || [],
+      categories: db.categories || [],
+      costumes: db.costumes || [],
+      events: db.events || [],
+      reviews: (db.reviews || []).filter(r => r.status !== 'disembunyikan'),
+      settings: db.settings,
+      orders: [],
+      tickets: [],
+      coupons: [],
+      users: [],
+      auditLogs: [],
+      stockMovements: [],
+    };
   }
 }
 

@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { getServerSession } from '@/lib/session';
 
 export async function POST(req: Request) {
   try {
+    const session = await getServerSession(req);
+    if (!session) {
+      return NextResponse.json({ success: false, error: 'Sesi autentikasi diperlukan untuk mengunggah berkas' }, { status: 401 });
+    }
+
     const formData = await req.formData();
     const file = formData.get('file') as File | null;
 
