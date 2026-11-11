@@ -39,3 +39,4 @@ backend/
    - Menerima request dari frontend, memverifikasi sesi melalui `backend/security/session.ts`, dan memanggil fungsi database di `backend/database/server-db.ts`.
 3. **Backend Core (`backend/`)**:
    - Memproses logika bisnis, mutasi stok, kalkulasi diskon, validasi tiket, enkripsi password, dan menyimpan perubahan ke file JSON.
+
